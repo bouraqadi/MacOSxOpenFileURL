@@ -1,1 +1,1 @@
-# MacOpenFileURL
+# MacOSxOpenFileURL
