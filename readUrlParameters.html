@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Display URL Parameter</title>
+</head>
+<body>
+    <script>
+    let urlParams = new URLSearchParams(location.search);
+    let myParam = urlParams.get('q');
+    window.alert("Parameter is " + myParam);
+    </script>
+</body>
+</html>

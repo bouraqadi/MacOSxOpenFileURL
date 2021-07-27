@@ -1,0 +1,17 @@
+#!/bin/bash
+# This script is a workaround to a limitation of the default MacOS open
+# When openning a url starting with 'file:' MacOS deletes parameters that might be included
+
+if [ $# -eq 0 ]; then
+    /usr/bin/open # Make open display its usage
+    exit 0
+fi
+
+if [[ $1 == "file:"* ]]; then
+    currentPath=$(dirname "$0")
+    appleScript=$currentPath/openUrl.scpt
+    osascript $appleScript $1
+    exit 1
+fi
+
+/usr/bin/open "$@"
