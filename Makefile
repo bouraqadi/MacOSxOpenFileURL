@@ -9,12 +9,12 @@ CFLAGS ?= -O2
 
 .PHONY: all install uninstall clean
 
-all: $(BIN)
+all: build
 
-$(BIN):
+build:
 	$(CC) -o $(DefaultBrowserBin) $(CFLAGS) -framework Foundation -framework ApplicationServices src/main.m
 
-install: $(DefaultBrowserBin)
+install: build
 	install -d $(BINDIR)
 	install -m 755 $(DefaultBrowserBin) $(BINDIR)
 	install -m 755 $(OpenShellScript) $(BINDIR)
@@ -26,4 +26,4 @@ uninstall:
 	rm -f $(BINDIR)/$(OpenUrlAppleScript)
 	
 clean:
-	rm -f $(BIN)
+	rm -f $(DefaultBrowserBin)

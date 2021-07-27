@@ -10,7 +10,8 @@ fi
 if [[ $1 == "file:"* ]]; then
     currentPath=$(dirname "$0")
     appleScript=$currentPath/openUrl.scpt
-    osascript $appleScript $1
+    browserApp=`$currentPath/defaultWebBrowser`
+    osascript $appleScript "$browserApp" $1
     exit 1
 fi
 
